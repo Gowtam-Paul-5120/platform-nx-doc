@@ -155,8 +155,9 @@ const config = {
     algolia: {
       apiKey: "a5b30dbc788c254c0dd23e123ec2f945",
       indexName: "platform_nx_doc_vercel_app_2mrpq3w004_pages",
-      appId: "2MRPQ3W004",
+      contextualSearch: true,
       placeholder: "Search Documentation",
+      appId: "2MRPQ3W004",
     },
   },
   headTags: [
