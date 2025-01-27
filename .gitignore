@@ -3,7 +3,7 @@ node_modules
 .yarn
 
 # Production
-# /build
+/build
 
 # Generated files
 .docusaurus
