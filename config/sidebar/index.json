@@ -562,11 +562,11 @@
       "_template": "category"
     },
     {
-      "document": "docs/contact-us.mdx",
+      "document": "docs/New-Test-File.mdx",
       "_template": "doc"
     },
     {
-      "document": "docs/New-Test-File.mdx",
+      "document": "docs/contact-us.mdx",
       "_template": "doc"
     }
   ]
