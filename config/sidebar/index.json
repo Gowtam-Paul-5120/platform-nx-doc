@@ -564,6 +564,10 @@
     {
       "document": "docs/contact-us.mdx",
       "_template": "doc"
+    },
+    {
+      "document": "docs/New-Test-File.mdx",
+      "_template": "doc"
     }
   ]
 }
