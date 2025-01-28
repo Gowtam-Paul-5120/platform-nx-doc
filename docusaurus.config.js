@@ -108,10 +108,15 @@ const config = {
       ({
         docs: {
           sidebarPath: require.resolve("./sidebars.js"),
-          editUrl: `${
-            process.env.NEXT_PUBLIC_WEBSITE_URL ||
-            "https://tinasaurus.vercel.app/"
-          }admin/#/collections/doc`,
+          editUrl: ({ versionDocsDirPath, docPath }) => {
+            const baseUrl =
+              process.env.NEXT_PUBLIC_WEBSITE_URL ||
+              "https://platform-nx-doc.vercel.app/";
+            return `${baseUrl}admin/#/collections/edit/doc/${docPath.replace(
+              /\.mdx?$/,
+              ""
+            )}`;
+          },
         },
         blog: {
           showReadingTime: true,
@@ -127,6 +132,12 @@ const config = {
     ],
   ],
   plugins: [
+    [
+      require.resolve("@easyops-cn/docusaurus-search-local"),
+      {
+        hashed: true,
+      },
+    ],
     [
       "docusaurus-biel",
       {
@@ -162,23 +173,23 @@ const config = {
       theme: lightCodeTheme,
       darkTheme: darkCodeTheme,
     },
-    algolia: {
-      apiKey: "6bb31e1374ef64cd121a869f67a9b5c6",
-      indexName: "PlatformNX-docs-main",
-      contextualSearch: true,
-      placeholder: "Search Documentation",
-      appId: "2MRPQ3W004",
-    },
+    // algolia: {
+    //   apiKey: "6bb31e1374ef64cd121a869f67a9b5c6",
+    //   indexName: "PlatformNX-docs-main",
+    //   contextualSearch: true,
+    //   placeholder: "Search Documentation",
+    //   appId: "2MRPQ3W004",
+    // },
   },
-  headTags: [
-    {
-      tagName: "meta",
-      attributes: {
-        name: "algolia-site-verification",
-        content: "9901C1012576EECF",
-      },
-    },
-  ],
+  // headTags: [
+  //   {
+  //     tagName: "meta",
+  //     attributes: {
+  //       name: "algolia-site-verification",
+  //       content: "9901C1012576EECF",
+  //     },
+  //   },
+  // ],
 };
 
 module.exports = config;
