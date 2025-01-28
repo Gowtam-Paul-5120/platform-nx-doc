@@ -13919,6 +13919,16 @@ sitemap@^7.1.1:
     arg "^5.0.0"
     sax "^1.2.4"
 
+sitemap@^8.0.0:
+  version "8.0.0"
+  resolved "https://registry.yarnpkg.com/sitemap/-/sitemap-8.0.0.tgz#eb6ea48f95787cd680b83683c555d6f6b5a903fd"
+  integrity sha512-+AbdxhM9kJsHtruUF39bwS/B0Fytw6Fr1o4ZAIAEqA6cke2xcoO2GleBw9Zw7nRzILVEgz7zBM5GiTJjie1G9A==
+  dependencies:
+    "@types/node" "^17.0.5"
+    "@types/sax" "^1.2.1"
+    arg "^5.0.0"
+    sax "^1.2.4"
+
 skin-tone@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/skin-tone/-/skin-tone-2.0.0.tgz#4e3933ab45c0d4f4f781745d64b9f4c208e41237"
