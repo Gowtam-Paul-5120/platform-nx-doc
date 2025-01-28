@@ -126,6 +126,16 @@ const config = {
       }),
     ],
   ],
+  plugins: [
+    [
+      "docusaurus-biel",
+      {
+        project: "bs95gvpsn7",
+        headerTitle: "Biel.ai chatbot",
+        version: "latest",
+      },
+    ],
+  ],
   themeConfig: {
     navbar: {
       title: docusaurusData.title || "",
@@ -153,8 +163,8 @@ const config = {
       darkTheme: darkCodeTheme,
     },
     algolia: {
-      apiKey: "a5b30dbc788c254c0dd23e123ec2f945",
-      indexName: "platform_nx_doc_vercel_app_2mrpq3w004_pages",
+      apiKey: "6bb31e1374ef64cd121a869f67a9b5c6",
+      indexName: "PlatformNX-docs-main",
       contextualSearch: true,
       placeholder: "Search Documentation",
       appId: "2MRPQ3W004",

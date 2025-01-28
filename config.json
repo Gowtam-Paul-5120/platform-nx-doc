@@ -1,6 +1,6 @@
 {
-  "index_name": "platform_nx_doc_vercel_app_2mrpq3w004_pages",
-  "sitemap_urls": ["http://localhost:3000/sitemap.xml"],
+  "index_name": "PlatformNX-docs-main",
+  "sitemap_urls": ["https://platform-nx-doc.vercel.app/sitemap.xml"],
   "sitemap_alternate_links": true,
   "stop_urls": ["/tests"],
   "selectors": {
