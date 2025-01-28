@@ -2,7 +2,7 @@ const { SitemapStream, streamToPromise } = require("sitemap");
 const { createWriteStream, readdirSync, statSync } = require("fs");
 const path = require("path");
 
-const BASE_URL = process.env.NEXT_PUBLIC_WEBSITE_URL;
+const BASE_URL = "https://platform-nx-doc.vercel.app";
 const DOCS_PATH = path.join(__dirname, "docs");
 const OUTPUT_PATH = path.join(__dirname, "static", "sitemap.xml");
 
@@ -33,7 +33,11 @@ const docPages = getAllDocs(DOCS_PATH);
 const pages = [
   { url: "/", changefreq: "daily", priority: 1.0 },
   { url: "/blog", changefreq: "daily", priority: 0.9 },
-  ...docPages.map((url) => ({ url, changefreq: "weekly", priority: 0.8 })),
+  ...docPages.map((path) => ({
+    url: `${BASE_URL}${path}`, // Ensure absolute URL
+    changefreq: "daily",
+    priority: 0.8,
+  })),
 ];
 
 // Generate sitemap
@@ -41,7 +45,9 @@ const sitemap = new SitemapStream({ hostname: BASE_URL });
 const writeStream = createWriteStream(OUTPUT_PATH);
 sitemap.pipe(writeStream);
 
-pages.forEach((page) => sitemap.write(page));
+pages.forEach((page) => {
+  sitemap.write(page); // Write each page
+});
 sitemap.end();
 
-console.log(`✅ Sitemap generated at ${OUTPUT_PATH}`);
+console.log(`✅ Sitemap generated successfully at ${OUTPUT_PATH}`);
