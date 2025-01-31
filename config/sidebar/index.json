@@ -465,7 +465,7 @@
     {
       "title": "Working with the Schema Registry",
       "link": "doc",
-      "docLink": "docs/working-with-the-schema-registry/working-with-the-schema-registry.mdx",
+      "docLink": "docs/working-with-the-schema-registry/index.mdx",
       "items": [
         {
           "document": "docs/working-with-the-schema-registry/managing-schemas.mdx",
