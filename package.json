@@ -39,6 +39,7 @@
     "docker": "^1.0.0",
     "docusaurus-biel": "^1.0.4",
     "jq": "^1.7.2",
+    "node-gyp-build-optional-packages": "^5.2.2",
     "prism-react-renderer": "^2.4.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",

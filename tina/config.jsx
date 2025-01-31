@@ -831,9 +831,6 @@ const DocsCollection = {
       return `/docs/${document._sys.filename}`;
     },
   },
-  match: {
-    include: "**/*.mdx", // Ensure it matches all MDX files
-  },
 };
 
 // export default defineConfig({
