@@ -128,43 +128,6 @@ const PostCollection = {
   ],
 };
 
-const DocsCollection = {
-  name: "doc",
-  label: "Docs",
-  path: "docs",
-  format: "mdx",
-  fields: [
-    {
-      type: "string",
-      name: "title",
-      label: "Title",
-      isTitle: true,
-      required: true,
-    },
-    {
-      type: "string",
-      name: "description",
-      label: "Description",
-    },
-    {
-      label: "Tags",
-      name: "tags",
-      type: "string",
-      list: true,
-      ui: {
-        component: "tags",
-      },
-    },
-    {
-      type: "rich-text",
-      name: "body",
-      label: "Body",
-      isBody: true,
-      templates: [...MDXTemplates],
-    },
-  ],
-};
-
 const DocLinkTemplate = {
   name: "doc",
   label: "Doc Link",
@@ -817,12 +780,95 @@ const PagesCollection = {
       templates: [...MDXTemplates],
     },
   ],
+  ui: {
+    router: ({ document }) => `/${document._sys.breadcrumbs.join("/")}`,
+  },
 };
+
+const DocsCollection = {
+  name: "doc",
+  label: "Docs",
+  path: "docs",
+  format: "mdx",
+  fields: [
+    {
+      type: "string",
+      name: "title",
+      label: "Title",
+      isTitle: true,
+      required: true,
+    },
+    {
+      type: "string",
+      name: "description",
+      label: "Description",
+    },
+    {
+      label: "Tags",
+      name: "tags",
+      type: "string",
+      list: true,
+      ui: {
+        component: "tags",
+      },
+    },
+    {
+      type: "rich-text",
+      name: "body",
+      label: "Body",
+      isBody: true,
+      templates: [...MDXTemplates],
+    },
+  ],
+  ui: {
+    router: ({ document }) => {
+      return `/docs/${document._sys.filename}`;
+    },
+  },
+};
+
+// export default defineConfig({
+//   branch,
+//   clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID, // Get this from tina.io
+//   token: process.env.NEXT_PUBLIC_TINA_TOKEN, // Get this from tina.io
+//   build: {
+//     outputFolder: "admin",
+//     publicFolder: "static",
+//   },
+//   cmsCallback: (cms) => {
+//     cms.flags.set("branch-switcher", true);
+//     return cms;
+//   },
+//   media: {
+//     tina: {
+//       mediaRoot: "img",
+//       publicFolder: "static",
+//     },
+//   },
+//   schema: {
+//     collections: [
+//       DocsCollection,
+//       PostCollection,
+//       HomepageCollection,
+//       PagesCollection,
+//       SidebarCollection,
+//       SettingsCollection,
+//     ],
+//   },
+//   search: {
+//     tina: {
+//       indexerToken: process.env.NEXT_PUBLIC_TINA_SEARCH_TOKEN,
+//       stopwordLanguages: ["eng"],
+//     },
+//     indexBatchSize: 100,
+//     maxSearchIndexFieldLength: 100,
+//   },
+// });
 
 export default defineConfig({
   branch,
-  clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID, // Get this from tina.io
-  token: process.env.NEXT_PUBLIC_TINA_TOKEN, // Get this from tina.io
+  clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID,
+  token: process.env.NEXT_PUBLIC_TINA_TOKEN,
   build: {
     outputFolder: "admin",
     publicFolder: "static",
@@ -838,14 +884,7 @@ export default defineConfig({
     },
   },
   schema: {
-    collections: [
-      DocsCollection,
-      PostCollection,
-      HomepageCollection,
-      PagesCollection,
-      SidebarCollection,
-      SettingsCollection,
-    ],
+    collections: [DocsCollection, PagesCollection],
   },
   search: {
     tina: {
