@@ -788,7 +788,7 @@ const PagesCollection = {
 const DocsCollection = {
   name: "doc",
   label: "Docs",
-  path: "docs",
+  path: "docs", // ✅ Keep it as "docs" instead of using "docs/**"
   format: "mdx",
   fields: [
     {
@@ -817,12 +817,12 @@ const DocsCollection = {
       name: "body",
       label: "Body",
       isBody: true,
-      templates: [...MDXTemplates],
+      // templates: [...MDXTemplates],
     },
   ],
   ui: {
     router: ({ document }) => {
-      return `/docs/${document._sys.filename}`;
+      return `/docs/${document._sys.breadcrumbs.join("/")}`; // ✅ Supports nested folders
     },
   },
 };
