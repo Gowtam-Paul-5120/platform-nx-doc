@@ -781,14 +781,19 @@ const PagesCollection = {
     },
   ],
   ui: {
-    router: ({ document }) => `/${document._sys.breadcrumbs.join("/")}`,
+    router: ({ document }) => {
+      if (document._sys.filename === "home") {
+        return "/";
+      }
+      return undefined;
+    },
   },
 };
 
 const DocsCollection = {
   name: "doc",
   label: "Docs",
-  path: "docs", // ✅ Keep it as "docs" instead of using "docs/**"
+  path: "docs",
   format: "mdx",
   fields: [
     {
@@ -822,8 +827,12 @@ const DocsCollection = {
   ],
   ui: {
     router: ({ document }) => {
-      return `/docs/${document._sys.breadcrumbs.join("/")}`; // ✅ Supports nested folders
+      // navigate to the post that was clicked
+      return `/docs/${document._sys.filename}`;
     },
+  },
+  match: {
+    include: "**/*.mdx", // Ensure it matches all MDX files
   },
 };
 

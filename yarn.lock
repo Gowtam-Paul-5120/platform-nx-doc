@@ -15153,7 +15153,7 @@ tinacms@2.6.1:
     yup "^1.4.0"
     zod "^3.23.8"
 
-tinacms@^2.6.0:
+tinacms@^2.6.2:
   version "2.6.2"
   resolved "https://registry.yarnpkg.com/tinacms/-/tinacms-2.6.2.tgz#8214ddd6d67bfadbaec65e3ca2ee52aa185b3a92"
   integrity sha512-7Kc4OvnHS8E7mVX6nqY234l/fAWQg7Ci9ZW1OjI72U6XI/2i2ooTByJaNay3CXJ7eIuVAIw5h8lp7rqTNrOcFQ==

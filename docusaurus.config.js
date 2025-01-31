@@ -107,16 +107,24 @@ const config = {
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
+          path: "docs",
+          routeBasePath: "docs",
           sidebarPath: require.resolve("./sidebars.js"),
           editUrl: ({ versionDocsDirPath, docPath }) => {
             const baseUrl =
               process.env.NEXT_PUBLIC_WEBSITE_URL ||
               "https://platform-nx-doc.vercel.app/";
-            return `${baseUrl}admin/#/collections/edit/doc/${docPath.replace(
-              /\.mdx?$/,
-              ""
-            )}`;
+            return `${baseUrl}admin/#/~/docs/`;
           },
+          // editUrl: ({ versionDocsDirPath, docPath }) => {
+          //   const baseUrl =
+          //     process.env.NEXT_PUBLIC_WEBSITE_URL ||
+          //     "https://platform-nx-doc.vercel.app/";
+          //   return `${baseUrl}admin/#/collections/edit/doc/${docPath.replace(
+          //     /\.mdx?$/,
+          //     ""
+          //   )}`;
+          // },
         },
         blog: {
           showReadingTime: true,
