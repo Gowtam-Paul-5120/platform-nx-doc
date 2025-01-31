@@ -109,22 +109,15 @@ const config = {
         docs: {
           path: "docs",
           routeBasePath: "docs",
-          sidebarPath: require.resolve("./sidebars.js"),
           editUrl: ({ versionDocsDirPath, docPath }) => {
             const baseUrl =
               process.env.NEXT_PUBLIC_WEBSITE_URL ||
               "https://platform-nx-doc.vercel.app/";
-            return `${baseUrl}admin/#/~/docs/`;
+            return `${baseUrl}admin/#/collections/edit/doc/${docPath.replace(
+              /\.mdx?$/,
+              ""
+            )}`;
           },
-          // editUrl: ({ versionDocsDirPath, docPath }) => {
-          //   const baseUrl =
-          //     process.env.NEXT_PUBLIC_WEBSITE_URL ||
-          //     "https://platform-nx-doc.vercel.app/";
-          //   return `${baseUrl}admin/#/collections/edit/doc/${docPath.replace(
-          //     /\.mdx?$/,
-          //     ""
-          //   )}`;
-          // },
         },
         blog: {
           showReadingTime: true,
