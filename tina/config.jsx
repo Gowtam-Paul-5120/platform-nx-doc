@@ -890,7 +890,14 @@ export default defineConfig({
     },
   },
   schema: {
-    collections: [DocsCollection, PagesCollection],
+    collections: [
+      DocsCollection,
+      PostCollection,
+      PagesCollection,
+      SidebarCollection,
+      SettingsCollection,
+      HomepageCollection,
+    ],
   },
   search: {
     tina: {
